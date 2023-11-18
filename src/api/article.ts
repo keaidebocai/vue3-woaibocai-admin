@@ -30,10 +30,33 @@ type selectArticleStatus = {
     status: string
     orderBy: string
 }
-export const findAllPage = (current: number,size: number,queryCriteria: selectArticleStatus) => {
+export const FindAllPage = (current: number,size: number,queryCriteria: selectArticleStatus) => {
     return request<FindAllPage>({
       url: BaseURl + `findAllPage/${current}/${size}`,
       method: 'post',
       data: queryCriteria
     })
   }
+  //更新文章状态
+type blogRow = {
+    id: '',
+    title: '',
+    isTop: '0',
+    isCommont: '0',
+    status: '0',
+  }
+  export const UpdateArticleStatus = (blogArticleRow: blogRow) => {
+    return request({
+      url: BaseURl + `updateArticleStatus`,
+      method: 'post',
+      data: blogArticleRow
+    })
+  }
+  //删除文章
+  export const DeleteById = (id) => {
+    return request({
+      url: BaseURl + `deleteById/${id}`,
+      method: 'delete',
+    })
+  }
+  

@@ -18,8 +18,8 @@ import { isCollapse } from './isCollapse'
             <el-icon><IEpSetting /></el-icon><span>文章列表</span>
           </el-menu-item>
 
-          <el-menu-item index="/roles">
-            <el-icon><IEpSetting /></el-icon><span>角色列表</span>
+          <el-menu-item index="/writeArticle">
+            <el-icon><IEpSetting /></el-icon><span>写文章</span>
           </el-menu-item>
 
           <el-menu-item index="/resources">
