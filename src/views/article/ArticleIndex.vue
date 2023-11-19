@@ -50,11 +50,11 @@ const selectArticleStatus = {
     status: '',
     orderBy: ''
 }
+const queryCriteria = ref(selectArticleStatus)
 //查询条件
 const onSubmit =  () => {
   fetchData()
 }
-const queryCriteria = ref(selectArticleStatus)
 //刷新数据
 const fetchData = async () => {
   const { data } = await FindAllPage(paramPages.value.current,paramPages.value.size,queryCriteria.value)
@@ -198,7 +198,7 @@ updateTime: '', -->
       @current-change="fetchData()"
     />
     <!-- ========================编辑选择器======================= -->
-  <el-dialog v-model="dialogVisible" title="修改状态" width="30%">
+    <el-dialog v-model="dialogVisible" title="修改状态" width="30%">
     <el-form-item label="文章标题">
       <el-input v-model="blogArticleRow.title" />
     </el-form-item>

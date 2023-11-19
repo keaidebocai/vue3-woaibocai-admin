@@ -4,7 +4,6 @@
     "ComponentPublicInstance": true,
     "ComputedRef": true,
     "EffectScope": true,
-    "ElMessage": true,
     "ExtractDefaultPropTypes": true,
     "ExtractPropTypes": true,
     "ExtractPublicPropTypes": true,
@@ -64,11 +63,7 @@
     "watchEffect": true,
     "watchPostEffect": true,
     "watchSyncEffect": true,
-    "onBeforeRouteLeave": true,
-    "onBeforeRouteUpdate": true,
-    "useLink": true,
-    "useRoute": true,
-    "useRouter": true,
+    "ElMessage": true,
     "ElMessageBox": true
   }
 }

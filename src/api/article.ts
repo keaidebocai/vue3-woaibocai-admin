@@ -11,8 +11,8 @@ type FindAllPage = CommonReturn<{
   size: number
   current: number
   total: number
-  records: {
-    id: number
+  records: [{
+    id: string
     title: string
     isTop: string
     viewCount: number
@@ -21,7 +21,7 @@ type FindAllPage = CommonReturn<{
     isDeleted: number
     createTime: string
     updateTime: string
-  } 
+  }] 
 }>
 type selectArticleStatus = {
     title: string
@@ -39,11 +39,11 @@ export const FindAllPage = (current: number,size: number,queryCriteria: selectAr
   }
   //更新文章状态
 type blogRow = {
-    id: '',
-    title: '',
-    isTop: '0',
-    isCommont: '0',
-    status: '0',
+    id: string,
+    title: string,
+    isTop: string,
+    isCommont: string,
+    status: string,
   }
   export const UpdateArticleStatus = (blogArticleRow: blogRow) => {
     return request({

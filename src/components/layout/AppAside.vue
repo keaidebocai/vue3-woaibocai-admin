@@ -25,31 +25,23 @@ import { isCollapse } from './isCollapse'
           <el-menu-item index="/resources">
             <el-icon><IEpSetting /></el-icon><span>菜单列表</span>
           </el-menu-item>
-
-          <el-menu-item index="/menus">
-            <el-icon><IEpSetting /></el-icon><span>资源列表</span>
-          </el-menu-item>
         </el-sub-menu>
-
-        <el-menu-item index="users">
-          <el-icon><IEpSetting /></el-icon><span>用户管理</span>
-        </el-menu-item>
-
-        <el-menu-item index="course">
-          <el-icon><IEpSetting /></el-icon><span>课程管理</span>
-        </el-menu-item>
 
         <el-sub-menu index="2">
           <template #title>
-            <el-icon><IEpSetting /></el-icon><span>广告管理</span>
+            <el-icon><IEpSetting /></el-icon><span>标签管理</span>
           </template>
-          <el-menu-item index="advertisement">
-            <el-icon><IEpSetting /></el-icon><span>广告列表</span>
+          <el-menu-item index="/tagList">
+            <el-icon><IEpSetting /></el-icon><span>标签列表</span>
           </el-menu-item>
           <el-menu-item index="advertising-space">
             <el-icon><IEpSetting /></el-icon><span>广告位管理</span>
           </el-menu-item>
         </el-sub-menu>
+
+        <el-menu-item index="course">
+          <el-icon><IEpSetting /></el-icon><span>课程管理</span>
+        </el-menu-item>
       </el-menu>
     </el-scrollbar>
   </el-aside>
