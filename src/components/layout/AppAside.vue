@@ -39,6 +39,15 @@ import { isCollapse } from './isCollapse'
           </el-menu-item>
         </el-sub-menu>
 
+        <el-sub-menu index="3">
+          <template #title>
+            <el-icon><IEpSetting /></el-icon><span>友链管理</span>
+          </template>
+          <el-menu-item index="/friendsList">
+            <el-icon><IEpSetting /></el-icon><span>友链列表</span>
+          </el-menu-item>
+        </el-sub-menu>
+
         <el-menu-item index="course">
           <el-icon><IEpSetting /></el-icon><span>课程管理</span>
         </el-menu-item>
