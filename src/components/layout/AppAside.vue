@@ -22,9 +22,6 @@ import { isCollapse } from './isCollapse'
             <el-icon><IEpSetting /></el-icon><span>写文章</span>
           </el-menu-item>
 
-          <el-menu-item index="/resources">
-            <el-icon><IEpSetting /></el-icon><span>菜单列表</span>
-          </el-menu-item>
         </el-sub-menu>
 
         <el-sub-menu index="2">
@@ -34,9 +31,7 @@ import { isCollapse } from './isCollapse'
           <el-menu-item index="/tagList">
             <el-icon><IEpSetting /></el-icon><span>标签列表</span>
           </el-menu-item>
-          <el-menu-item index="advertising-space">
-            <el-icon><IEpSetting /></el-icon><span>广告位管理</span>
-          </el-menu-item>
+          
         </el-sub-menu>
 
         <el-sub-menu index="3">
@@ -45,6 +40,15 @@ import { isCollapse } from './isCollapse'
           </template>
           <el-menu-item index="/friendsList">
             <el-icon><IEpSetting /></el-icon><span>友链列表</span>
+          </el-menu-item>
+        </el-sub-menu>
+<!-- categoryList -->
+        <el-sub-menu index="4">
+          <template #title>
+            <el-icon><IEpSetting /></el-icon><span>分类管理</span>
+          </template>
+          <el-menu-item index="/categoryList">
+            <el-icon><IEpSetting /></el-icon><span>分类列表</span>
           </el-menu-item>
         </el-sub-menu>
 

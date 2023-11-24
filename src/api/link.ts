@@ -1,4 +1,3 @@
-import { id } from 'element-plus/es/locales.mjs'
 import request from '../utils/request'
 const BaseURl = 'admin/api/manager/link/'
 //提取公共的类型
