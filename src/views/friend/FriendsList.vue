@@ -117,7 +117,7 @@ onMounted(() => {
     </el-form>
         <el-table :data="friendLink" style="width: 100%">
         <el-table-column prop="linkName" label="名称" width="150" />
-        <el-table-column prop="logo" label="头像" width="65">
+        <el-table-column label="头像" width="65">
             <template #default="scope">
                 <el-avatar :src="scope.row.logo" />
             </template>
@@ -125,7 +125,9 @@ onMounted(() => {
         <el-table-column prop="description" label="描述" />
         <el-table-column prop="address" label="网络地址">
             <template #default="scope">
-                <a :href="scope.row.address" target="_blank">{{ scope.row.address }}</a>
+                <a :href="scope.row.address" target="_blank">
+                  {{ scope.row.address }}
+                </a>
             </template>
         </el-table-column>
         <el-table-column prop="status" label="状态" width="80" #default="scope">

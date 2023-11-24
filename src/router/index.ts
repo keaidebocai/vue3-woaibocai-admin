@@ -49,6 +49,11 @@ const router = createRouter({
           component: () => import('@/views/category/CategoryList.vue')
         },
         {
+          path: '/commentList',
+          name: 'commentList',
+          component: () => import('@/views/comment/commentList.vue')
+        },
+        {
           path: '/about',
           name: 'about',
           // route level code-splitting

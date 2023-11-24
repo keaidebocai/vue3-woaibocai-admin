@@ -137,7 +137,7 @@ onMounted(() => {
     <el-dialog v-model="dialogVisible" title="添加标签" width="30%">
       <el-form
         label-width="115px"
-        :model="insertTag"
+        :model="insertCategory"
         style="max-width: 460px"
       >
         <el-form-item label="标签名">
