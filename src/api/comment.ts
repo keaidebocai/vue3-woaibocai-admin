@@ -19,4 +19,11 @@ export const FindAllPage = (current: number,size: number,query: QueryData) => {
       method: 'post',
       data: query
     })
-  }
+}
+//DeleteById
+export const DeleteById = (id: string) => {
+  return request({
+    url: BaseURl + `delete/${id}`,
+    method: 'delete'
+  })
+}

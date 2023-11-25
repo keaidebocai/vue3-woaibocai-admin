@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { FindAllPage } from '@/api/comment'
+import { DeleteById, FindAllPage } from '@/api/comment'
 import { onMounted, ref } from 'vue'
 //================分页===============
 //初始页数
@@ -15,6 +15,19 @@ const fetchData = async() => {
     total.value = data.data.total
     page.value.current = data.data.current
     page.value.size = data.data.size
+}
+//删除评论
+const deleteById = async id => {
+    ElMessageBox.confirm('此操作将永久删除该记录, 是否继续?', 'Warning', {
+    confirmButtonText: '确定',
+    cancelButtonText: '取消',
+    type: 'warning',
+    })
+    .then(async () => {
+        await DeleteById(id)
+        ElMessage.success('删除成功')
+        fetchData()
+    })
 }
 //=======================加载数据=========================
 onMounted(() => {
@@ -88,9 +101,8 @@ const queryDataClick = () => {
         <el-table-column prop="toCommentNickName" label="收评论的昵称" width="120" />
         <el-table-column prop="commentLikeCount" label="点赞数" width="120" />
         <el-table-column fixed="right" label="Operations" width="150">
-            <template #default>
-            <el-button type="primary" size="small">Detail</el-button>
-            <el-button type="primary" size="small">删除</el-button>
+            <template #default="scope">
+            <el-button type="primary" size="small" @click="deleteById(scope.row.id)">删除</el-button>
             </template>
         </el-table-column>
     </el-table>
