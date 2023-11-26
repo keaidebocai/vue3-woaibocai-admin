@@ -47,3 +47,14 @@ export const InsertCategory = (insertCategory: updateData) => {
       data: insertCategory
     })
 }
+//写文章选择器 分类列表集合 categorySelector
+type categorySelector = [{
+  value: string
+  label: string
+}]
+export const CategorySelector = () => {
+  return request<CommonReturn<categorySelector>>({
+    url: BaseURl + `categorySelector`,
+    method: 'get'
+  })
+}

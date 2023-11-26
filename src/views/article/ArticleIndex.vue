@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { DeleteById, UpdateArticleStatus, FindAllPage } from '@/api/article'
 import { ref, onMounted } from 'vue'
+import { useRouter } from 'vue-router'
+const router = useRouter()
 //===================编辑框=================================
 const blogRow = {
   id: '',
@@ -14,9 +16,13 @@ const blogArticleRow = ref(blogRow)
 const dialogVisible = ref(false)
 //编辑框
 const handleClick = row => {
-  console.log(row)
   blogArticleRow.value = row
   dialogVisible.value = true
+}
+//修改文章
+const ReviseClick = id => {
+  router.push(`/updateArticle/${id}`)
+  ElMessage.success('回显成功!')
 }
 //取消quit
 const quit = () => {
@@ -58,7 +64,6 @@ const onSubmit =  () => {
 //刷新数据
 const fetchData = async () => {
   const { data } = await FindAllPage(paramPages.value.current,paramPages.value.size,queryCriteria.value)
-  console.log(data.data.records)
   paramPages.value.current = data.data.current
   paramPages.value.size = data.data.size
   total.value = data.data.total
@@ -175,8 +180,9 @@ updateTime: '', -->
       {{ scope.row.status == 1 ? '已发布' : '未发布' }}
     </el-table-column>
     <el-table-column prop="createTime" label="创建时间" width="200" />
-    <el-table-column fixed="right" label="操作" width="180">
+    <el-table-column fixed="right" label="操作" width="220">
       <template #default="scope">
+        <el-button type="info" size="small" @click="ReviseClick(scope.row.id)">修改文章</el-button>
         <el-button type="primary" size="small" @click="handleClick(scope.row)">编辑</el-button>
         <el-button type="danger" size="small" @click="Delete(scope.row.id)">删除</el-button>
       </template>

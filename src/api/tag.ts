@@ -47,3 +47,10 @@ export const DeleteById = (id) => {
     method: 'delete',
   })
 }
+//获取所有tag信息方便展示 getAllTagAndId
+export const GetAllTagAndId = () => {
+  return request({
+    url: BaseURl + `getAllTagAndId`,
+    method: 'get'
+  })
+}

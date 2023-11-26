@@ -52,11 +52,34 @@ type blogRow = {
       data: blogArticleRow
     })
   }
-  //删除文章
-  export const DeleteById = (id) => {
-    return request({
-      url: BaseURl + `deleteById/${id}`,
-      method: 'delete',
-    })
-  }
+//删除文章
+export const DeleteById = (id) => {
+  return request({
+    url: BaseURl + `deleteById/${id}`,
+    method: 'delete',
+  })
+}
+//添加文章
+export const WriteArticle = (write) => {
+  return request({
+    url: BaseURl + `writeArticle`,
+    method: 'post',
+    data: write
+  })
+}
+//修改文章数据回显 updateArticleData/{id}
+export const UpdateArticleData = (id) => {
+  return request({
+    url: BaseURl + `updateArticleData/${id}`,
+    method: 'get'
+  })
+}
+//修改文章 updateArticle
+export const UpdateArticle = (write) => {
+  return request({
+    url: BaseURl + `updateArticle`,
+    method: 'put',
+    data: write
+  })
+}
   

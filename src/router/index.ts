@@ -34,6 +34,11 @@ const router = createRouter({
           component: () => import('@/views/article/WriteArticle.vue')
         },
         {
+          path: '/updateArticle/:id',
+          name: 'updateArticle',
+          component: () => import('@/views/article/WriteArticle.vue')
+        },
+        {
           path: '/tagList',
           name: 'tagList',
           component: () => import('@/views/tag/tagList.vue')
