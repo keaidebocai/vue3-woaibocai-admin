@@ -44,10 +44,8 @@ const handleLogout = async () => {
     </el-icon>
     <!-- 面包屑 -->
     <el-breadcrumb separator="/">
-      <el-breadcrumb-item :to="{ path: '/' }">homepage</el-breadcrumb-item>
-      <el-breadcrumb-item><a href="/">promotion management</a></el-breadcrumb-item>
-      <el-breadcrumb-item>promotion list</el-breadcrumb-item>
-      <el-breadcrumb-item>promotion detail</el-breadcrumb-item>
+      <el-breadcrumb-item :to="{ path: '/' }">回到首页</el-breadcrumb-item>
+      <!-- <el-breadcrumb-item><a href="/">大海里全是水！</a></el-breadcrumb-item> -->
     </el-breadcrumb>
     <!-- 下拉菜单 -->
     <el-dropdown>

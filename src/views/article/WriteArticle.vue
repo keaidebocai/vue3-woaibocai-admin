@@ -6,6 +6,7 @@ import { onMounted, ref } from 'vue'
 import { MdEditor } from 'md-editor-v3'
 import 'md-editor-v3/lib/style.css'
 import { useRouter, useRoute } from 'vue-router'
+
 const router = useRouter()
 const route = useRoute()
 //===============写文章接口的数据初始化============
@@ -83,7 +84,7 @@ onMounted(() => {
     categoryData()
     tagData()
 })
-//==========================================================
+//==========================标签================================
 import { ElInput } from 'element-plus'
 const dynamicTags = ref([])
 const liveTags = ref()
@@ -105,6 +106,12 @@ const handleInputConfirm = (tag) => {
     liveTags.value.splice(liveTags.value.indexOf(tag),1)
     // dynamicTags.value = write.value.tags
     write.value.tags.push(tag)
+}
+//=============图片上传=====================
+const handleSuccess = (response, file)=> {
+    // 上传成功后获取服务器返回的图片URL，并将其赋值给imageUrl
+    console.log(response.data)
+    write.value.thumbnail = response.data
 }
 </script>
 <template>
@@ -189,8 +196,16 @@ const handleInputConfirm = (tag) => {
                     <el-input placeholder="摘要" v-model="write.summary" type="textarea" />
                 </el-form-item>
                 <!-- 图片上传 -->
+                    <el-upload
+                        action="http://localhost:16288/bcblog/cos/uploadThumbnail"
+                        :on-success="handleSuccess"
+                        :show-file-list="false"
+                        >
+                        <el-button slot="trigger" size="small" type="primary">选择文件</el-button>
+                    </el-upload>
+                    <img v-if="write.thumbnail" :src="write.thumbnail" alt="Uploaded Image" style="width: 540px;height: 300px;">
             </el-form>
-
+            
         </div>
         
         <MdEditor v-model="write.content" />

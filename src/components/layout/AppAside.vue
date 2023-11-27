@@ -61,9 +61,9 @@ import { isCollapse } from './isCollapse'
           </el-menu-item>
         </el-sub-menu>
 
-        <el-menu-item index="course">
+        <!-- <el-menu-item index="course">
           <el-icon><IEpSetting /></el-icon><span>课程管理</span>
-        </el-menu-item>
+        </el-menu-item> -->
       </el-menu>
     </el-scrollbar>
   </el-aside>
