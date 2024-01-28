@@ -7,23 +7,22 @@ type CommonReturn<T = string> = {
   data: T
 }
 type QueryData = {
-    content: string
-    articleTitle: string
-    toCommentUserNickName: string
-    toCommentNickName: string
-
+  content: string
+  articleTitle: string
+  toCommentUserNickName: string
+  toCommentNickName: string
 }
-export const FindAllPage = (current: number,size: number,query: QueryData) => {
-    return request({
-      url: BaseURl + `getCommentList/${current}/${size}`,
-      method: 'post',
-      data: query
-    })
+export const FindAllPage = (current: number, size: number, query: QueryData) => {
+  return request({
+    url: BaseURl + `getCommentList/${current}/${size}`,
+    method: 'post',
+    data: query
+  })
 }
 //DeleteById
-export const DeleteById = (id: string) => {
+export const DeleteById = (id: string, blogArticleId: string) => {
   return request({
-    url: BaseURl + `delete/${id}`,
+    url: BaseURl + `delete/${id}/${blogArticleId}`,
     method: 'delete'
   })
 }

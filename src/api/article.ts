@@ -11,52 +11,54 @@ type FindAllPage = CommonReturn<{
   size: number
   current: number
   total: number
-  records: [{
-    id: string
-    title: string
-    isTop: string
-    viewCount: number
-    isCommont: string
-    status: string
-    isDeleted: number
-    createTime: string
-    updateTime: string
-  }] 
+  records: [
+    {
+      id: string
+      title: string
+      isTop: string
+      viewCount: number
+      isCommont: string
+      status: string
+      isDeleted: number
+      createTime: string
+      updateTime: string
+    }
+  ]
 }>
 type selectArticleStatus = {
-    title: string
-    isTop: string
-    isCommont: string
-    status: string
-    orderBy: string
+  title: string
+  isTop: string
+  isCommont: string
+  status: string
+  orderBy: string
 }
-export const FindAllPage = (current: number,size: number,queryCriteria: selectArticleStatus) => {
-    return request<FindAllPage>({
-      url: BaseURl + `findAllPage/${current}/${size}`,
-      method: 'post',
-      data: queryCriteria
-    })
-  }
-  //更新文章状态
+export const FindAllPage = (current: number, size: number, queryCriteria: selectArticleStatus) => {
+  return request<FindAllPage>({
+    url: BaseURl + `findAllPage/${current}/${size}`,
+    method: 'post',
+    data: queryCriteria
+  })
+}
+//更新文章状态
 type blogRow = {
-    id: string,
-    title: string,
-    isTop: string,
-    isCommont: string,
-    status: string,
-  }
-  export const UpdateArticleStatus = (blogArticleRow: blogRow) => {
-    return request({
-      url: BaseURl + `updateArticleStatus`,
-      method: 'post',
-      data: blogArticleRow
-    })
-  }
-//删除文章
-export const DeleteById = (id) => {
+  id: string
+  title: string
+  isTop: string
+  isCommont: string
+  status: string
+}
+export const UpdateArticleStatus = (blogArticleRow: blogRow) => {
   return request({
-    url: BaseURl + `deleteById/${id}`,
-    method: 'delete',
+    url: BaseURl + `updateArticleStatus`,
+    method: 'post',
+    data: blogArticleRow
+  })
+}
+//删除文章
+export const DeleteById = (id, url) => {
+  return request({
+    url: BaseURl + `deleteById/${id}/${url}`,
+    method: 'delete'
   })
 }
 //添加文章
@@ -82,4 +84,18 @@ export const UpdateArticle = (write) => {
     data: write
   })
 }
-  
+// 批量上传图片
+// ('http://localhost:16288/api/blog/cos/userUpload', {
+//     method: 'post',
+//     body: data
+//     // headers: {
+//     //   "Content-Type": "multipart/form-data",
+//     // },
+//   })
+export const UserOnUploadImage = (data: FormData) => {
+  return request({
+    url: 'http://localhost:16288/api/blog/cos/userUpload',
+    method: 'post',
+    data: data
+  })
+}
